@@ -25,7 +25,7 @@
                     'rose-alert': '#F43F5E',
                 },
                 fontSize: {
-                    'h-fluid': 'clamp(3rem, 7vw, 7rem)',
+                    'h-fluid': 'clamp(2.5rem, 6vw, 6rem)',
                 }
             }
         }
@@ -63,7 +63,6 @@
         transform: translateY(-5px);
         box-shadow: 0 10px 40px -10px rgba(255, 255, 255, 0.05);
     }
-    /* Modal utility classes handled by Tailwind transition, keeping pure CSS minimal */
 </style>
 </head>
 <body class="min-h-screen font-sans selection:bg-cyan-electric selection:text-black">
@@ -72,17 +71,17 @@
 <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 h-16 flex items-center justify-between px-6 md:px-12">
     <div class="flex items-center gap-4">
         <div class="w-3 h-3 bg-cyan-electric rounded-full animate-pulse shadow-[0_0_10px_#00F0FF]"></div>
-        <span class="font-mono text-xs tracking-[0.2em] text-gray-400">SYS.LOG.AUDIT // 2024-JURIKOV</span>
+        <span class="font-mono text-xs tracking-[0.2em] text-gray-400">AUDITORÍA // 2024-JURIKOV</span>
     </div>
-    <div class="font-mono text-xs text-gray-500 tracking-widest hidden md:block">FILTERED: 05 CATEGORIES</div>
+    <div class="font-mono text-xs text-gray-500 tracking-widest hidden md:block">FILTRADO: 05 CATEGORÍAS</div>
 </nav>
 
 <!-- MAIN CONTENT -->
 <main class="pt-32 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto">
     <header class="mb-20 relative">
         <h1 class="font-display font-black text-white text-h-fluid tracking-tighter uppercase mb-4 leading-[0.9]">
-            System <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-electric to-violet-future">Analysis</span><br/>
-            Report
+            Informe de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-electric to-violet-future">Análisis</span><br/>
+            del Sistema
         </h1>
         <div class="flex flex-col md:flex-row md:items-end justify-between border-t border-white/20 pt-8 mt-8">
             <p class="text-gray-400 max-w-2xl text-xl font-light leading-tight">
@@ -90,7 +89,7 @@
                 <span class="text-white font-normal">Visualización depurada de patrones de fallo técnico.</span>
             </p>
             <div class="mt-8 md:mt-0 text-right">
-                <div class="text-6xl font-display font-bold text-white/10">v.2.1</div>
+                <div class="text-6xl font-display font-bold text-white/10">v.2.3</div>
             </div>
         </div>
     </header>
@@ -175,6 +174,7 @@
         </article>
 
         <!-- CARD 05 -->
+        <!-- md:col-span-2 ensures it spans 2 columns on tablet and desktop (since we have 3 cols on desktop, 1+2=3 fills row) -->
         <article class="hud-card bg-void p-12 cursor-pointer group min-h-[380px] flex flex-col justify-between text-rose-alert md:col-span-2" onclick="openModal(4)">
             <div>
                 <div class="flex justify-between items-start mb-8">
@@ -221,14 +221,14 @@
             
             <div class="mt-8 opacity-50">
                 <div class="flex justify-between text-xs font-mono text-gray-500 mb-2">
-                    <span>SEVERITY INDEX</span>
+                    <span>ÍNDICE DE SEVERIDAD</span>
                     <span id="modal-severity-num">95%</span>
                 </div>
                 <div class="w-full bg-white/10 h-px relative">
                     <div class="absolute top-0 left-0 h-full w-[80%] bg-current transition-all duration-1000" id="modal-severity-bar"></div>
                 </div>
                 <div class="mt-4 border border-white/10 p-4">
-                    <div class="text-xs font-mono text-gray-500 uppercase">Status</div>
+                    <div class="text-xs font-mono text-gray-500 uppercase">Estado</div>
                     <div class="text-2xl font-bold text-white" id="modal-severity">CRITICAL</div>
                 </div>
             </div>
@@ -240,7 +240,7 @@
                 <div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="material-symbols-outlined text-rose-500">error</span>
-                        <h3 class="font-mono text-sm tracking-widest text-rose-500 uppercase">Input Error</h3>
+                        <h3 class="font-mono text-sm tracking-widest text-rose-500 uppercase">Error de Entrada</h3>
                     </div>
                     <p class="text-2xl text-white font-light leading-snug border-l-2 border-rose-500 pl-6 py-2" id="modal-error">
                         Error Description
@@ -249,7 +249,7 @@
                 <div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="material-symbols-outlined text-emerald-tech">check_circle</span>
-                        <h3 class="font-mono text-sm tracking-widest text-emerald-tech uppercase">Source Data</h3>
+                        <h3 class="font-mono text-sm tracking-widest text-emerald-tech uppercase">Fuente Real</h3>
                     </div>
                     <p class="text-2xl text-white font-light leading-snug border-l-2 border-emerald-tech pl-6 py-2" id="modal-reality">
                         Reality Description
@@ -258,7 +258,7 @@
             </div>
 
             <div class="border-t border-white/10 pt-12">
-                <h4 class="font-mono text-xs text-gray-500 mb-6 uppercase tracking-widest">Diagnostic Log</h4>
+                <h4 class="font-mono text-xs text-gray-500 mb-6 uppercase tracking-widest">Registro de Diagnóstico</h4>
                 <div class="bg-white/5 border border-white/5 p-8 mb-8">
                     <p class="font-mono mb-2" id="modal-consequence-label">&gt; DIAGNOSTIC_RESULT:</p>
                     <p class="text-xl text-gray-300" id="modal-consequence">
@@ -266,7 +266,7 @@
                     </p>
                 </div>
 
-                <h4 class="font-mono text-xs text-gray-500 mb-6 uppercase tracking-widest">Detected Instances</h4>
+                <h4 class="font-mono text-xs text-gray-500 mb-6 uppercase tracking-widest">Instancias Detectadas</h4>
                 <ul class="space-y-4 font-mono text-sm text-gray-400" id="modal-examples">
                 </ul>
             </div>
@@ -278,9 +278,9 @@
     const systemData = [
         {
             code: "ERR_CODE_01",
-            title: "PRECISION FAILURE",
+            title: "FALLO DE PRECISIÓN",
             summary: "Incapacidad para distinguir entre una sospecha médica y un hecho confirmado.",
-            severity: "CRITICAL",
+            severity: "CRÍTICO",
             severityNum: "95%",
             color: "text-cyan-electric",
             lineColor: "bg-cyan-electric",
@@ -295,9 +295,9 @@
         },
         {
             code: "ERR_CODE_02",
-            title: "HIERARCHY ERROR",
+            title: "ERROR DE JERARQUÍA",
             summary: "Fallo sistemático al identificar la noticia principal frente al contexto.",
-            severity: "HIGH",
+            severity: "ALTO",
             severityNum: "80%",
             color: "text-violet-future",
             lineColor: "bg-violet-future",
@@ -312,9 +312,9 @@
         },
         {
             code: "ERR_CODE_03",
-            title: "STRUCTURAL DECAY",
+            title: "DETERIORO ESTRUCTURAL",
             summary: "Desconocimiento funcional de la cabeza de titulación.",
-            severity: "MODERATE",
+            severity: "MODERADO",
             severityNum: "65%",
             color: "text-emerald-tech",
             lineColor: "bg-emerald-tech",
@@ -329,9 +329,9 @@
         },
         {
             code: "ERR_CODE_04",
-            title: "SYNTAX ERROR",
+            title: "ERROR DE SINTAXIS",
             summary: "Deficiencias en calidad de redacción, ortografía y estilo.",
-            severity: "LOW",
+            severity: "BAJO",
             severityNum: "45%",
             color: "text-warning-yellow",
             lineColor: "bg-warning-yellow",
@@ -346,9 +346,9 @@
         },
         {
             code: "ERR_CODE_05",
-            title: "ENTITY MISMATCH",
+            title: "DISCREPANCIA DE ENTIDAD",
             summary: "Error conceptual grave en la identificación de actores.",
-            severity: "ALERT",
+            severity: "ALERTA",
             severityNum: "85%",
             color: "text-rose-alert",
             lineColor: "bg-rose-alert",
